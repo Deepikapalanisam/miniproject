@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    text-align: center;
+    background: #ecc4c4;
+    margin-top: 2%;
+    margin-left: 20%;
+    padding: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    width: 550px;
+}
+
+.container h1 {
+    margin-bottom: 20px;
+}
+
+.container input[type="text"],
+.container select,
+.container button {
+    width: calc(100%); /* Adjusted width to account for padding and borders */
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensure padding and border are included in width calculation */
+}
+
+.container input[type="checkbox"] {
+    margin-top: 10px;
+}
+
+.container button {
+    background: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.container button:hover {
+    background: #0056b3;
+}

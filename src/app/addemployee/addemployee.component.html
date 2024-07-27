@@ -1,0 +1,91 @@
+<div class="container">
+  <h1>Employee Registration</h1>
+  <form [formGroup]="frm" (ngSubmit)="onSubmit()">
+
+    <div>
+      <label for="firstname">First Name</label>
+      <input type="text" id="firstname" name="firstname" formControlName="firstname">
+      <ng-container *ngIf="frm.get('firstname')?.invalid && frm.get('firstname')?.touched">
+        <div style="color: red" *ngIf="frm.get('firstname')?.errors?.['required']">This field is required</div>
+      </ng-container>
+    </div>
+
+    <div>
+      <label for="lastname">Last Name</label>
+      <input type="text" id="lastname" name="lastname" formControlName="lastname">
+      <ng-container *ngIf="frm.get('lastname')?.invalid && frm.get('lastname')?.touched">
+        <div style="color: red" *ngIf="frm.get('lastname')?.errors?.['required']">This field is required</div>
+        <div style="color: red" *ngIf="frm.get('lastname')?.errors?.['maxlength']">Max length exceeded</div>
+      </ng-container>
+    </div>
+
+    <div>
+      <label for="email">Email</label>
+      <input type="text" id="email" name="email" formControlName="emailid">
+      <ng-container *ngIf="frm.get('emailid')?.invalid && frm.get('emailid')?.touched">
+        <div style="color: red" *ngIf="frm.get('emailid')?.errors?.['required']">This field is required</div>
+        <div style="color: red" *ngIf="frm.get('emailid')?.errors?.['email']">Enter a valid email</div>
+      </ng-container>
+    </div>
+
+    <div>
+      <label>Gender</label>
+      <input type="radio" value="male" id="gender-male" name="gender" formControlName="gender"> Male
+      <input type="radio" value="female" id="gender-female" name="gender" formControlName="gender"> Female
+      <ng-container *ngIf="frm.get('gender')?.invalid && frm.get('gender')?.touched">
+        <div style="color: red" *ngIf="frm.get('gender')?.errors?.['required']">This field is required</div>
+      </ng-container>
+    </div>
+
+    <div>
+      <label for="country">Country</label>
+      <select id="country" name="country" formControlName="country">
+        <option *ngFor="let country of countryList" [value]="country.id">{{ country.name }}</option>
+      </select>
+      <ng-container *ngIf="frm.get('country')?.invalid && frm.get('country')?.touched">
+        <div style="color: red" *ngIf="frm.get('country')?.errors?.['required']">This field is required</div>
+      </ng-container>
+    </div>
+
+    <div>
+      <label for="employeeId">Employee ID</label>
+      <input type="text" id="employeeId" name="employeeId" formControlName="employeeId">
+      <ng-container *ngIf="frm.get('employeeId')?.invalid && frm.get('employeeId')?.touched">
+        <div style="color: red" *ngIf="frm.get('employeeId')?.errors?.['required']">This field is required</div>
+      </ng-container>
+    </div>
+
+    <div>
+      <label for="mobile">Mobile Number</label>
+      <input type="text" id="mobile" name="mobile" formControlName="mobile">
+      <ng-container *ngIf="frm.get('mobile')?.invalid && frm.get('mobile')?.touched">
+        <div style="color: red" *ngIf="frm.get('mobile')?.errors?.['required']">This field is required</div>
+      </ng-container>
+    </div>
+
+    <div>
+      <label for="department">Department</label>
+      <select id="department" name="department" formControlName="department">
+        <option value="IT">IT</option>
+        <option value="HR">HR</option>
+        <option value="Finance">Finance</option>
+        <!-- Add other departments as needed -->
+      </select>
+      <ng-container *ngIf="frm.get('department')?.invalid && frm.get('department')?.touched">
+        <div style="color: red" *ngIf="frm.get('department')?.errors?.['required']">This field is required</div>
+      </ng-container>
+    </div>
+
+    <div>
+      <label for="isverified">Verified the details</label>
+      <input type="checkbox" id="isverified" name="isverified" formControlName="isverified">
+      <ng-container *ngIf="frm.get('isverified')?.invalid && frm.get('isverified')?.touched">
+        <div style="color: red" *ngIf="frm.get('isverified')?.errors?.['required']">This field is required</div>
+      </ng-container>
+    </div>
+
+    <button type="submit" [disabled]="!frm.valid">Submit</button>
+  </form>
+
+  <pre>{{ msg }}</pre>
+</div>

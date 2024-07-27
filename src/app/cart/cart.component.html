@@ -1,0 +1,53 @@
+<div class="cart-container">
+    <h1>Leave Requests</h1>
+    
+    <form (ngSubmit)="addLeave()">
+      <div>
+        <label for="employeeName">Employee Name:</label>
+        <input type="text" id="employeeName" [(ngModel)]="newLeave.employeeName" name="employeeName" required>
+      </div>
+      
+      <div>
+        <label for="leaveType">Leave Type:</label>
+        <select id="leaveType" [(ngModel)]="newLeave.leaveType" name="leaveType" required>
+          <option *ngFor="let type of leaveTypes" [value]="type">{{ type }}</option>
+        </select>
+      </div>
+      
+      <div>
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" [(ngModel)]="newLeave.startDate" name="startDate" required>
+      </div>
+      
+      <div>
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate" [(ngModel)]="newLeave.endDate" name="endDate" required>
+      </div>
+      
+      <button type="submit">Add Leave</button>
+    </form>
+    <br>
+    <br><br><br><br>
+    <H1>LEAVE CART</H1>
+    <table>
+      <thead>
+        <tr>
+          <th>Employee Name</th>
+          <th>Leave Type</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let leave of leaves">
+          <td>{{ leave.employeeName }}</td>
+          <td>{{ leave.leaveType }}</td>
+          <td>{{ leave.startDate | date }}</td>
+          <td>{{ leave.endDate | date }}</td>
+          <td>{{ leave.status }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
